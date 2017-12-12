@@ -1,7 +1,27 @@
 **********************			Step 1 -> Installation of NASA CDF Library 			****************************
 For CDF library latest version: https://cdf.gsfc.nasa.gov/
 -- my installed version cdf36_4 -> Downloaded from: https://spdf.sci.gsfc.nasa.gov/pub/software/cdf/dist/cdf36_4/macosx/src_distribution/cdf36_4-dist-all.tar.gz
-For installation of NASA CDF library, Open terminal and run the following one by one  
-$ gunzip 
+For installation of NASA CDF library, extract the cdf36_4-dist-all.tar.gz folder
+Open terminal and run the following one by one  
+$ cd <specify the path of extracted folder>
+$ make OS=macosx ENV=x86_64 all     #check the machine env by executing set | grep MACHTYPE in commandline before running make command; for other OS and ENV specifications run make --help)
+$ make test (to test the build file)
+$ make INSTALLDIR=/usr/local/CDF install  #to install to the specific directory
+(for more details follow; https://github.com/mattbornski/cdf/blob/master/cdf33-dist/README.install) 
+
+Additional tips: 
+If the files are in cdf36_4-dist/lib, you can do these:
+1. mkdir /Users/username/lib (if lib directory does not exist)
+2. cp cdf36_4-dist/lib/libcdf.a /Users/username/lib/libcdf.a
+3. cp cdf36_4-dist/libcdf.3.6.4.dylib /Users/username/lib/libcdf.3.6.4.dylib
+4. cd /Users/username/lib
+5. ln -s libcdf.dylib libcdf.3.6.4.dylib
+Otherwise, then do these:
+2. cp cdf36_4-dist/src/lib/libcdf.a /Users/username/lib/libcdf.a
+3. cp cdf36_4-dist/src/libcdf.dylib /Users/username/lib/libcdf.3.6.4.dylib
+(Same steps for 1, 4 and 5)
+
+**********************			Step 1 -> Installation of SpacePy 			****************************
+
 	
 	
