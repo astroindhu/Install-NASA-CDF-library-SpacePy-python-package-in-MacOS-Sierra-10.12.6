@@ -23,5 +23,13 @@ Otherwise, then do these:
 
 **********************			Step 1 -> Installation of SpacePy 			****************************
 
-	
-	
+
+
+
+
+*********************			Check the installation 				*************************
+https://pythonhosted.org/SpacePy/pycdf.html
+
+import os
+os.environ["CDF_LIB"] = "/usr/local/CDF/lib" # for my installation 
+from spacepy import pycdf
