@@ -23,13 +23,35 @@ Otherwise, then do these:
 
 **********************			Step 1 -> Installation of SpacePy 			****************************
 
+Downlaod the SpacePy from https://pypi.python.org/pypi/SpacePy
+Install the procedure https://pythonhosted.org/SpacePy/install_mac.html
+- if you dont have gfortran compiler already then do the following before installing spacepy
+      > downlaod pre-compiled gfortran-7.1-bin.tar.gz from http://hpc.sourceforge.net/
+      > Open terminal and run  (Source: https://www.webmo.net/support/fortran_osx.html)
+        $ gunzip gfortran-7.1-bin.tar.gz
+        $ tar -xvf gfortran-7.1-bin.tar.gz -C /
+- now install the downloaded space using following commands ; source: https://pythonhosted.org/SpacePy/install_mac.html
+     > first Go to Spacepy extracted folder and then run; 
+        $ python setup.py build --fcompiler=gnu95 
+          Note: python setup.py build --help-fcompiler will list options for FORTRAN compilers
+        $ python setup.py install --user
+        
+- once done, open python terminal and run the following 
+    >>> import spacepy.toolbox; spacepy.toolbox.update()
 
+Now Spacepy is successfully installed and updated 
 
-
-
-*********************			Check the installation 				*************************
-https://pythonhosted.org/SpacePy/pycdf.html
-
+*********************			Using pycdf to access the NASA CDF library 				*************************
 import os
-os.environ["CDF_LIB"] = "/usr/local/CDF/lib" # for my installation 
+os.environ["CDF_LIB"] = "/usr/local/CDF/lib" # linked to NASA CDF library of my local installation 
 from spacepy import pycdf
+
+For details: Source: https://pythonhosted.org/SpacePy/pycdf.html
+
+*****************************************************************************************************
+
+For CDF related technical queries, contact; 
+"gsfc-cdf-support@lists.nasa.gov" <gsfc-cdf-support@lists.nasa.gov>
+ "Jonathan Niehof" <Jonathan.Niehof@unh.edu>
+"smorley@lanl.gov" <smorley@lanl.gov>
+"michael.h.liu@nasa.gov" <michael.h.liu@nasa.gov>
